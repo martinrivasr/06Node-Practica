@@ -1,0 +1,58 @@
+<%- include('header.ejs') %>
+
+<div class="main-layout">
+    <!-- Barra de navegación (suponiendo que ya existe en otro lugar de tu HTML) -->
+
+    <!-- Layout principal con filtros y contenido de productos -->
+    <div class="layout-content">
+        <!-- Sección de filtros a la izquierda -->
+        <aside class="filters">
+            <form class="filters-form">
+                <h2>Filtrar productos</h2>
+                <label for="tag">Tag:</label>
+                <select id="tag" name="tag">
+                    <option value="todos">Todos</option>
+                    <option value="work">Work</option>
+                    <option value="lifestyle">Lifestyle</option>
+                    <option value="motor">Motor</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+
+                <label for="min-price">Precio mínimo:</label>
+                <input type="number" id="min-price" name="min-price" value="0">
+
+                <label for="max-price">Precio máximo:</label>
+                <input type="number" id="max-price" name="max-price" value="1000">
+
+                <label for="product-name">Nombre del producto:</label>
+                <input type="text" id="product-name" name="product-name" placeholder="Comienza por...">
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </aside>
+
+        <!-- Sección de contenido de productos a la derecha -->
+        <section class="content">
+            <% products.forEach(product => { %>
+                <div class="product">
+                    <img src="<%= product.picture %>" alt="Foto del producto" class="product-image">
+                    <div class="product-details">
+                        <h4 class="product-name"><%= product.product %></h4>
+                        <p class="product-owner">Propietario: <%= product.owner.name %></p>
+                        <p class="product-price">Precio: $<%= product.precio %></p>
+                        <div class="product-tags">
+                            <% product.tags.forEach(tag => { %>
+                                <span class="tag"><%= tag.tagname %></span>
+                            <% }) %>
+                        </div>
+                        <div class="product-actions">
+                            <button class="buy-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </section>
+    </div>
+</div>
+
+<%- include('footer.ejs') %>

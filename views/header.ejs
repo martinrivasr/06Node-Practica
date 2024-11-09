@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodepop</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a class="navbar-brand" href="/">Nodepop.!!!</a>
+            <div class="pagination">
+                <label for="records-per-page">Registros por página:</label>
+                <select id="records-per-page">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                <div class="page-controls">
+                    <button class="page-btn">« Anterior</button>
+                    <span class="page-info">Página 1 de 5</span>
+                    <button class="page-btn">Siguiente »</button>
+                </div>
+            </div>
+            <div class="account-menu">
+                <span class="username-label">Usuario: Usuario123</span>
+                <a href="/login">Login</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Mi cuenta</button>
+                    <div class="dropdown-content">
+                        <a href="/user-data">Configuración</a>
+                        <a href="/user-items">Mis productos</a>
+                        <a href="/create-item">Alta de producto</a>
+                        <a href="#">Salir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

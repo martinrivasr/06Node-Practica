@@ -5,12 +5,30 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODEAPP_ENV=production node server.js",
+    "dev": "cross-env DEBUG=practica:* NODEAPP_ENV=development nodemon server.js",
+    "initDB": "node initializeDB.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "bcrypt": "^5.1.1",
+    "chance": "^1.1.12",
+    "cloudinary": "^2.5.1",
+    "connect-mongo": "^5.1.0",
+    "cross-env": "^7.0.3",
+    "debug": "^4.3.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^8.8.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.7"
   }
 }
