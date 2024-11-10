@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-//definicion del esquema de los productos
+
 const productSchema = new Schema({
     product: {
         type: String,

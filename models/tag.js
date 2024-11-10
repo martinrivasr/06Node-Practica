@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-//definicion del esquema de los tag
+
 const tagSchema = new Schema({
     tagname: {
         type: String,

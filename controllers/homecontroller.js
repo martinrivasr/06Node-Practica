@@ -33,11 +33,11 @@ export async function index(req, res, next) {
         const recordsPerPage = parseInt(req.query.limit) || 25;
         const skip = parseInt(req.query.page || 1) - 1;
         
-        // Ordenamiento
+        // Sorting
         const sort = req.query.sort || 'product';
         const direction = req.query.direction === 'desc' ? -1 : 1;
 
-        // Define el criterio de ordenamiento
+        // sortin options
         let sortCriteria = {};
         if (sort === 'owner') {
             sortCriteria = { 'owner.name': direction };
@@ -47,28 +47,25 @@ export async function index(req, res, next) {
             sortCriteria = { [sort]: direction };
         }
 
-        // Verificar el criterio de ordenamiento
-        console.log('Criterio de ordenamiento:', sortCriteria);
 
-        // Cuenta el total de productos que coinciden con los filtros
+        // total record count
         const totalRecords = await Product.countDocuments(filters);
         
-        // Calcula el total de páginas
+        // tptal pages
         const totalPages = Math.ceil(totalRecords / recordsPerPage);
 
-        // Consulta de productos con filtros, paginación y ordenamiento
+        // data filter with filters, pages and sorting
         const products = await Product.find(filters)
             .populate('owner tags')
-            .sort(sortCriteria)  // Aplica el orden
+            .sort(sortCriteria)  
             .skip(skip * recordsPerPage)
             .limit(recordsPerPage);
 
-        // Verificar el orden de productos obtenido
-        console.log('Productos obtenidos:', products.map(p => p.product));
+        
 
         products.forEach((product, index) => {
             if (!product.picture) {
-                product.picture = '/imagen.jpg'; // Ruta de la imagen predeterminada
+                product.picture = '/imagen.jpg'; 
             }
             console.log(`Producto ${index + 1}: Imagen - ${product.picture}`);
         });

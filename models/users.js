@@ -27,7 +27,7 @@ const userSchema = new Schema({
     timestamps: true 
 })
 
-// Middleware para hashear la contraseña antes de guardar
+
 userSchema.pre('save', async function(next) {
     const user = this;
     if (!user.isModified('password')) return next();

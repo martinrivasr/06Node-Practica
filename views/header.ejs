@@ -79,7 +79,7 @@
             const limit = document.getElementById('records-per-page').value;
             const urlParams = new URLSearchParams(window.location.search);
             urlParams.set('limit', limit);
-            urlParams.set('page', 1); // Resetea a la primera página al cambiar el límite
+            urlParams.set('page', 1); 
             window.location.search = urlParams.toString();
         }
     
@@ -95,7 +95,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             urlParams.set('sort', sort);
             urlParams.set('direction', direction);
-            urlParams.set('page', 1); // Resetea a la primera página al cambiar el orden
+            urlParams.set('page', 1); 
             window.location.search = urlParams.toString();
         }
     </script>

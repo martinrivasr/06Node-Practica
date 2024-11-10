@@ -1,11 +1,9 @@
 <%- include('header.ejs') %>
 
 <div class="main-layout">
-    <!-- Barra de navegación (suponiendo que ya existe en otro lugar de tu HTML) -->
 
-    <!-- Layout principal con filtros y contenido de productos -->
     <div class="layout-content">
-        <!-- Sección de filtros a la izquierda -->
+       
         <aside class="filters">
             <form class="filters-form">
                 <h2>Filtrar productos</h2>
@@ -34,13 +32,11 @@
             <p>userid: <%= session.userID  %></a></p>
         </aside>
 
-        <!-- Sección de contenido de productos a la derecha -->
-
 
             <section class="content">
                 <% products.forEach((product, index) => { %>
                     <div class="product">
-                        <!-- Muestra el número de posición del producto -->
+                       
                         <p class="product-number">Producto <%= (currentPage - 1) * recordsPerPage + index + 1 %> de <%= totalRecords %></p>
                         
                         <img src="<%= product.picture %>" alt="Foto del producto" class="product-image" 
