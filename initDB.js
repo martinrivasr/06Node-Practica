@@ -50,8 +50,16 @@ const initializeDB = async () => {
             }))
         );
 
-        const insertedUsers = await User.insertMany(users);
 
+        const insertedUsers = await User.insertMany(users)
+
+        const insertResult = await User.insertMany([
+            {email: 'admin@example.com', name: 'admin', password: await bcrypt.hash('password123', 10), country: 'test'},
+            {email: 'user1@example.com', name: 'user1', password: await bcrypt.hash('password123', 10), country: 'test'},
+            {email: 'user2@example.com', name: 'user2', password: await bcrypt.hash('password123', 10), country: 'test'},
+            {email: 'user3@example.com', name: 'user3', password: await bcrypt.hash('password123', 10), country: 'test'},
+        ])
+        
     
         const products = [];
         const productosEjemplo = [
