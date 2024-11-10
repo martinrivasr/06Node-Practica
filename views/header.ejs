@@ -25,8 +25,13 @@
                 </div>
             </div>
             <div class="account-menu">
-                <span class="username-label">Usuario: Usuario123</span>
-                <a href="/login">Login</a>
+                <span class="username-label">Hola <%= session.userName %> bienvenido</span>
+                <% if(session.userID) { %>
+                    <a href="/logout">Logout</a>
+                <% } else { %>
+                    <a href="/login">login</a>
+                <% } %>
+                
                 <div class="dropdown">
                     <button class="dropbtn">Mi cuenta</button>
                     <div class="dropdown-content">

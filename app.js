@@ -1,14 +1,17 @@
 import express from 'express'
+import logger from 'morgan'
 import createError from 'http-errors'
 import imageRoutes from './routes/imageRoutes.js'
 import * as homeController  from './controllers/homecontroller.js'
+import * as headerController from './controllers/headerController.js'
 import * as loginController from './controllers/loginControllers.js'
-
 import * as createItemController from './controllers/createItemController.js'
-import * as createUserController from './controllers/createUserController.js'
+import * as createUserController from './controllers/createUserController.js'   
 import * as userItemController from './controllers/userItemsController.js'
 import * as userDataController from './controllers/userDataController.js'
 import connectMongoose from './lib/DBConection.js';
+import * as sessionManager from './lib/sessionManager.js'
+
 
 
 await connectMongoose()
@@ -26,12 +29,17 @@ app.set('view engine', 'ejs')
 
 //app.use(logger('dev'))
 //app.use(logger('dev'))
+app.use(sessionManager.middleware, sessionManager.useSessionInViews)
+
+app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded())
 app.use('/', express.static('public'))
+app.all('/logout', headerController.logout)
 
 
 // public pages
+
 app.use('/images', imageRoutes);
 app.get('/', homeController.index)
 app.get('/login', loginController.index)
@@ -41,6 +49,9 @@ app.get('/create-item', createItemController.index)
 app.get('/user-items', userItemController.index)
 app.get('/user-data', userDataController.index)
 
+
+// private  pages
+app.get('/items-create', sessionManager.isLogged, createItemController.index)
 
 //Manejo de errores
 app.use((req,res,next)=>{

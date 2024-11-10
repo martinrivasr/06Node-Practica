@@ -291,6 +291,7 @@ body {
 }
 
 .product-form-container {
+    margin-top: 40px;
     max-width: 600px;
     margin: 40px auto;
     padding: 20px;
@@ -300,12 +301,14 @@ body {
 }
 
 .product-form-container h2 {
+    margin-top: 40px;
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
 .product-form {
+    
     display: flex;
     flex-direction: column;
     gap: 15px;
