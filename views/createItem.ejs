@@ -1,18 +1,18 @@
 <%- include ('header.ejs') %>
     <div class="product-form-container">
         <h2>Dar de Alta un Producto</h2>
-        <form class="product-form">
+        <form class="product-form" method="POST">
             <!-- Product Name -->
             <label for="product-name">Nombre del producto:</label>
-            <input type="text" id="product-name" name="product-name" placeholder="Nombre del producto" required>
+            <input type="text" id="product-name" name="product" placeholder="Nombre del producto" required>
 
             <!-- Price -->
             <label for="product-price">Precio:</label>
-            <input type="number" id="product-price" name="product-price" placeholder="Precio en USD" min="0" required>
+            <input type="number" id="product-price" name="precio" placeholder="Precio en USD" min="0" required>
 
             <!-- Product Photo -->
             <label for="product-photo">Foto del producto:</label>
-            <input type="file" id="product-photo" name="product-photo" accept="image/*" required>
+            <input type="file" id="product-photo" name="picture" accept="image/*" required>
 
             <!-- Product Tags -->
             <label for="product-tags">Tags del producto:</label>

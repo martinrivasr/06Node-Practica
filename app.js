@@ -48,14 +48,18 @@ app.get('/create-user', createUserController.index)
 app.get('/create-item', createItemController.index)
 app.get('/user-items', userItemController.index)
 app.get('/user-data', userDataController.index)
+app.post('/create-user', createUserController.registerUser); 
 
 
 // private  pages
 app.get('/items-create', sessionManager.isLogged, createItemController.index)
+app.post('/create-item', sessionManager.isLogged, createItemController.postNew)
+app.get('/product/delete/:productId', sessionManager.isLogged, userItemController.deleteProduct)
 
 //Manejo de errores
 app.use((req,res,next)=>{
     next (createError(404))
+    res.render('error')
    })
 
 

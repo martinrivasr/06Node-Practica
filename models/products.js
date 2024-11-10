@@ -4,7 +4,6 @@ import mongoose, { Schema } from "mongoose";
 const productSchema = new Schema({
     product: {
         type: String,
-        unique: true,
         required: true,
         trim: true,
     },
@@ -24,8 +23,7 @@ const productSchema = new Schema({
     },
     tags:[{
         type: Schema.Types.ObjectId,
-        ref: 'Tag',
-        required: true,  
+        ref: 'Tag'
     }],
     owner: {
         type: Schema.Types.ObjectId,
