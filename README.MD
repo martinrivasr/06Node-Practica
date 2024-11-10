@@ -59,7 +59,7 @@ Nodepop es una aplicación web desarrollada para la venta de artículos de segun
 # npm install express-session 
 
 
-Crea un archivo `.env` en la raíz del proyecto con la configuración para MongoDB y otras variables necesarias, como `PORT` y `CLOUDINARY_URL` (si usas Cloudinary para el manejo de imágenes).
+Crea un archivo `.env` en la raíz del proyecto con la configuración para MongoDB y otras variables necesarias, como `PORT` y `CLOUDINARY_URL` ( se deja la condiguracion para utilizar  Cloudinary para el manejo de imágenes una vez que se despliegue el proyecto).
 
 ## Inicialización de la Base de Datos
 
